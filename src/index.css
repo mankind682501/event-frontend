@@ -1,0 +1,488 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  /* background-color: black; */
+  
+}
+#img{
+  filter:grayscale(70%);
+}
+
+#ab{
+  position: relative;
+  width: 100%;
+  background: #fff;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: 0.5s;
+  
+}
+
+#ab:hover{
+  background: var(--clr);
+  color: var(--clr);
+  letter-spacing: 0.25em;
+  box-shadow: 0 0 35px var(--clr);
+}
+
+#ab::before{
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #000A22;
+}
+
+#ab span{
+  position: relative;
+  z-index: 1;
+ 
+}
+
+#ab i{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+#ab i::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 10px;
+  height: 4px;
+  background: #000A22;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+
+#ab:hover i::before{
+  width: 20px;
+  left: 20%;
+}
+#ab i::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 10px;
+  height: 4px;
+  background: #151F28;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+
+#ab:hover i::after{
+  width: 20px;
+  left: 80%;
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------- */
+
+
+
+
+
+
+
+
+body {
+  /* height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #46467a; */
+  color: #f9f9f9;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  opacity: 0.5;
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+
+table {
+  width: 100%;
+}
+
+table tr td {
+  padding: 10px 0 0;
+  vertical-align: middle;
+}
+
+.card {
+  border-radius: 10px;
+  background: #26263c;
+  box-shadow: 0 30px 50px rgb(0 0 0 / 12%);
+  width: 100%;
+}
+
+.card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 10px;
+}
+
+.card header h2 {
+  opacity: 0.66;
+}
+
+.card header button:hover {
+  opacity: 1;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  background: rgb(255 255 255 / 8%);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+}
+
+.stars img {
+  width: 16px;
+  height: 16px;
+}
+
+.social {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 0.5;
+  display: grid;
+  place-items: center;
+  padding: 12px 14px;
+  border-radius: 6px;
+  transition: opacity 0.25s;
+}
+
+.buttons button.active {
+  background: #685cf6;
+  opacity: 1;
+}
+
+.tables {
+  position: relative;
+  overflow: hidden;
+  height: 196px;
+}
+
+.tables-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1200px;
+  display: flex;
+  transition: 0.5s;
+}
+
+table {
+  margin: 0 20px 0;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+table.active {
+  opacity: 1;
+}
+
+table tr td:nth-child(1) {
+  width: 60px;
+}
+
+table tr td:nth-child(2) {
+  width: 120px;
+}
+
+table tr td:nth-child(3) {
+  padding-left: 20px;
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------- */
+#nytlyf{
+ background-color: #0d0129;
+ height: 300vh;
+ 
+}
+
+/* #mh{
+  background-color: black;
+} */
+#mh:hover{
+  background-color: white;
+
+ 
+}
+#faall{
+  color:blue;
+}
+
+
+#bt1:hover{
+  background-color: black;
+  color: white;
+}
+
+/* business */
+#b1{
+  background-image: url(https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg?t=st=1724872434~exp=1724876034~hmac=cf617888d5cb21948c25596b1578c2555392686d80b6f87dfd2fa40b2f54e990&w=1380);
+background-size: cover;
+border-radius: 50%;
+}
+#bt{
+  background-image: linear-gradient(to right, red , yellow);
+  font-size: 100px;
+}
+/* dating */
+
+#d12{
+  background-image: url(https://w0.peakpx.com/wallpaper/411/410/HD-wallpaper-date-by-moonlight-couple-anime-street-purple-moon-night.jpg);
+  background-size: cover;
+  border-radius: 50%;
+
+}
+
+
+
+#f12{
+  color: pink;
+  font-weight: 700;
+}
+
+#fd1{
+  background-image: url(https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141353.jpg);
+  background-size: cover;
+  border-radius: 50%;
+}
+
+
+
+#h12{
+  background-image: url(https://images.wallpaperscraft.com/image/single/crayons_colorful_paint_159883_3840x2160.jpg);
+  background-size: cover;
+  border-radius: 50%;
+}
+
+#h12345{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyXhvLvdflxnkuW_VUJeOfnzfXzJhzwZFqRw&s);
+  background-size: cover;
+  border-radius: 50%;
+
+}
+#MS12{
+  background-image: url(https://images.pexels.com/photos/12745513/pexels-photo-12745513.jpeg?cs=srgb&dl=pexels-caleboquendo-12745513.jpg&fm=jpg);
+  
+  background-size: cover;
+ 
+
+}
+#eo1{
+  
+    font-size: 80px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(rgb(84, 3, 73), rgb(56, 23, 246));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+}
+#bt123:hover{
+  background-color: black;
+  color: white;
+
+}
+
+#listimg1{
+  background-image: url(./images/listimg1.png);
+}
+
+
+
+/* create event */
+
+
+
+.create-event nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.create-event nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.create-event nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.create-event main {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-event h2 {
+  text-align: center;
+}
+
+.create-event form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-event label {
+  margin: 10px 0 5px;
+}
+
+.create-event input,
+.create-event select,
+.create-event textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.create-event button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-event button:hover {
+  background-color: #218838;
+}
+
+
+
+/* --------------------------------------------------------------------- */
+.circle-text {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+.circle-text::before {
+  content: 'GET STARTED GET STARTED GET STARTED GET STARTED GET STARTED GET STARTED';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(0deg);
+  animation: rotate 10s linear infinite;
+  color: #F5C6C6;
+  white-space: nowrap;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+.arrow {
+  position: absolute;
+  font-size: 2rem;
+  color: #F5C6C6;
+}
+
+
+#glasseffect{
+
+  background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border:1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  #ft{
+    display: none;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
