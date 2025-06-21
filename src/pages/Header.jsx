@@ -128,12 +128,12 @@ function Header() {
         </Nav>
         <Nav>
           <Nav.Item>
-            <div className='d-flex'>
-              <Link to={'/allevent'} style={{ textDecoration: 'none', color: 'white' }}><p className='ms-5 mt-3 fs-4'>Find events</p></Link>
-              <Link to={'/listevent'} style={{ textDecoration: 'none', color: 'white' }}><p className='ms-5 mt-3 fs-4'>Create Events</p></Link>
-              <p className='ms-5 mt-3'>
-                <Nav.Item className='ms-5'>
-                <div className='help-center' style={{ width: '100%', maxWidth: '200px' }}>
+            <div className='d-flex my-3 my-md-0'>
+              <Link to={'/allevent'} style={{ textDecoration: 'none', color: 'white' }}><p className='ms-2 ms-md-4 mt-3 fs-4'>Find events</p></Link>
+              <Link to={'/listevent'} style={{ textDecoration: 'none', color: 'white' }}><p className='ms-2 ms-md-4 mt-3 fs-4'>Create Events</p></Link>
+              <p className='ms-0 ms-md-5 mt-3 me-2'>
+                <Nav.Item className=''>
+                <div className='help-center' style={{ width: '100%'}}>
                 <select name="help-center" id="help-center" className='form-select'>
                 <option value="help-center">Help Center</option>
                <option value="find-ticket">Find your ticket</option>
@@ -142,25 +142,27 @@ function Header() {
                 </div>
                 </Nav.Item>
               </p>
-             <Link to={'/ticket'} className='text-light text-decoration-none'> <p id='ft' className='mt-3 ms-5 fs-4'>Find my tickets</p></Link>
             </div>
           </Nav.Item>
-          <Nav.Item className='ms-5'>
-            <div className='d-flex justify-content-center'>
-             <Link to={'/profile'}> <Button variant="btn btn-outline-light me-3 mt-3" className=" mt-3">
-              {isLoginStatus?
-              <p>{username}</p>
-              :<p>user</p>
-              } </Button></Link>
-             {isLoginStatus ? 
-  <Button variant="btn btn-outline-light me-3 mt-3" onClick={handleLogout}>
-    Logout
-  </Button>
- : 
-  <Button  variant="btn btn-outline-light me-3 mt-3" onClick={() => navigate('/login')}>
-    Login
-  </Button>
-}
+          <Nav.Item className=''>
+            <div className='d-flex mx-4'>
+              <Link to={'/ticket'} className='text-light text-decoration-none'> <p id='ft' className='mt-3 me-4 ms-0 ms-md-5 fs-4'>Find my tickets</p></Link>
+
+              <Link to={'/profile'}> <Button variant="btn btn-outline-light me-3 mt-3" className=" mt-3">
+                {isLoginStatus?
+                <p>{username}</p>
+                :<p>user</p>
+                } </Button>
+              </Link>
+              {isLoginStatus ? 
+                <Button variant="btn btn-outline-light me-3 mt-3" onClick={handleLogout}>
+                  Logout
+                </Button>
+              : 
+                <Button  variant="btn btn-outline-light me-3 mt-3" onClick={() => navigate('/login')}>
+                  Login
+                </Button>
+              }
 
           
             </div>

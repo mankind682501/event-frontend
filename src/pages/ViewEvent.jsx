@@ -42,8 +42,8 @@ function ViewEvent() {
 
 
   return (
-    <div className="container-fluid" style={{ backgroundColor: 'black', width: '100%', height: '100vh' }}>
-      <div className="row mb-3" style={{ height: '100vh' }}>
+    <div className="container-fluid" style={{ backgroundColor: 'black', width: '100%', }}>
+      <div className="row " >
         <div className="col-md-1"></div>
         <div className="col-md-6 d-flex justify-content-center align-items-center">
           <img

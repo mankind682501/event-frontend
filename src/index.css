@@ -466,12 +466,12 @@ border-radius: 50%;
   border-radius: 32px;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   #ft{
     display: none;
   }
   
-}
+} */
 .circle{
   background: linear-gradient(45deg, #007BFF, #00BFFF);
 }
