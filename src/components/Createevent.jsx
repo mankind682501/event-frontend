@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addEventApi } from '../services/allApi';
+import { Link } from 'react-router-dom';
 // import { v4 as uuidv4 } from 'uuid';
 
 
 const CreateEvent = () => {
     const [eventDetails, setEventDetails] = useState({
-        eventImg: "", // Changed to match file input
+        eventImg: "", 
         eventName: "",
         eventDate: "",
         eventTime: "",
@@ -48,7 +49,7 @@ const CreateEvent = () => {
     const handleAdd = async () => {
         const { eventImg, eventName, eventDate, eventTime, description, eventType, capacity, ticketPrice, isPublic, isPrivate } = eventDetails;
 
-        if (!eventImg || !eventName || !eventDate || !eventTime || !description || !eventType || !capacity || !ticketPrice) {
+        if (!eventImg || !eventName || !eventDate || !eventTime || !description || !eventType) {
             toast.info("Please fill all required fields");
             return;
         }
@@ -66,8 +67,12 @@ const CreateEvent = () => {
         reqBody.append("eventTime", eventTime);
         reqBody.append("description", description);
         reqBody.append("eventType", eventType);
-        reqBody.append("capacity", capacity);
-        reqBody.append("ticketPrice", ticketPrice);
+        // reqBody.append("capacity", capacity);
+        // reqBody.append("ticketPrice", ticketPrice);
+        if (!isPrivate) {
+            reqBody.append("capacity", capacity);
+            reqBody.append("ticketPrice", ticketPrice);
+        }
         reqBody.append("isPublic", isPublic ? "true" : "false");
         reqBody.append("isPrivate", isPrivate ? "true" : "false");
        
@@ -80,9 +85,21 @@ const CreateEvent = () => {
                     "Authorization": `Bearer ${token}`
                 };
                 
-                const result = await addEventApi(reqBody, reqHeader); // Passing reqBody as intended
+                const result = await addEventApi(reqBody, reqHeader); 
                 if (result.status === 200) {
                     toast.success("Event added successfully");
+                    setEventDetails({
+                        eventImg: "",
+                        eventName: "",
+                        eventDate: "",
+                        eventTime: "",
+                        description: "",
+                        eventType: "",
+                        capacity: "",
+                        ticketPrice: "",
+                        isPublic: false,
+                        isPrivate: false
+                        });
                 } else {
                     toast.error("Something went wrong");
                 }
@@ -119,7 +136,8 @@ const CreateEvent = () => {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="create-event">
+                    <Link to={'/'}><button className='btn btn-light rounded ms-5 mt-3'>go back</button></Link>
+                    <div className="create-event mt-2">
                         <h2>Create Your Event</h2>
                         <form>
                             <label htmlFor="eventName">Event Name:</label>
@@ -167,19 +185,19 @@ const CreateEvent = () => {
                                 required
                             >
                                 <option value="">Select Event Type</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="conference">Conference</option>
-                                <option value="party">Party</option>
+                                <option value="Music">Music</option>
+                                <option value="NightLife">NightLife</option>
+                                <option value="performing & visualarts">performing & visualarts</option>
+                                <option value="Holidays">Holidays</option>
+                                <option value="Dating">Dating</option>
+                                <option value="Business">Business</option>
+                                <option value="Food & Drink">Food & Drink</option>
+                               
                             </select>
-                            <label htmlFor="capacity">Capacity:</label>
-                            <input
-                                type="number"
-                                id="capacity"
-                                name="capacity"
-                                value={eventDetails.capacity}
-                                onChange={handleChange}
-                                required
-                            />
+
+
+
+                            {/* check box */}
                             <fieldset>
                                 <legend>Privacy Settings:</legend>
                                 <label>
@@ -199,7 +217,39 @@ const CreateEvent = () => {
                                     /> Private
                                 </label>
                             </fieldset>
-                            <label htmlFor="ticketPrice">Ticket Price:</label>
+                            {/* <label htmlFor="capacity">Capacity:</label>
+                            <input
+                                type="number"
+                                id="capacity"
+                                name="capacity"
+                                value={eventDetails.capacity}
+                                onChange={handleChange}
+                                required
+                            /> */}
+                             {!eventDetails.isPublic && (
+                                <>
+                                    <label htmlFor="capacity">Capacity:</label>
+                                    <input
+                                        type="number"
+                                        id="capacity"
+                                        name="capacity"
+                                        value={eventDetails.capacity}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <label htmlFor="ticketPrice">Ticket Price:</label>
+                                    <input
+                                        type="number"
+                                        id="ticketPrice"
+                                        name="ticketPrice"
+                                        value={eventDetails.ticketPrice}
+                                        onChange={handleChange}
+                                        placeholder="Optional"
+                                    />
+                                </>
+                            )}
+                            
+                            {/* <label htmlFor="ticketPrice">Ticket Price:</label>
                             <input
                                 type="number"
                                 id="ticketPrice"
@@ -207,7 +257,7 @@ const CreateEvent = () => {
                                 value={eventDetails.ticketPrice}
                                 onChange={handleChange}
                                 placeholder="Optional"
-                            />
+                            /> */}
                             <button type="button" onClick={handleAdd}>Create Event</button>
                         </form>
                     </div>

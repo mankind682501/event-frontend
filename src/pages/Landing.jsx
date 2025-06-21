@@ -1,15 +1,14 @@
-
 import { useNavigate, Link } from 'react-router-dom';
 import { loginApi, registerApi } from '../services/allApi';
 import { ToastContainer, toast } from 'react-toastify';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
-
+import { isLoginAuthContext } from '../Context/Context';
 
 function Landing({ register }) {
+  const{setIsLoginStatus} = useContext(isLoginAuthContext)
   
   const navigate = useNavigate();
-  
   
   const [userDetails, setUserDetails] = useState({
     username: "",
@@ -60,6 +59,7 @@ function Landing({ register }) {
         setUserDetails({ username: "", email: "", password: "" });
         sessionStorage.setItem("existingUser", JSON.stringify(result.data.existingUser));
         sessionStorage.setItem("token", result.data.token);
+        setIsLoginStatus(true)
         navigate('/');
       } else {
         showToast("Something went wrong", "error");
@@ -72,16 +72,16 @@ function Landing({ register }) {
   return (
     <>
       <div
-        style={{
-          width: '100%',
-          height: '100vh',
-          backgroundImage: "url('https://img.freepik.com/premium-photo/purple-room-with-purple-pink-lights-wall_337384-141048.jpg?w=1060')",
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover'
-        }}
-        className='d-flex justify-content-center align-items-center'
+       style={{
+        width: '100%',
+        height: '100vh',
+        backgroundImage: "url('https://img.freepik.com/free-photo/white-snow-texture_1194-8691.jpg?t=st=1738607913~exp=1738611513~hmac=7e6f7598b4153ea1bb94076946904fe0050da5474cfea84c4453a5849085d8a2&w=740')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+      }}
+      className='d-flex justify-content-center align-items-center'
       >
-        <div style={{ height: '400px', width: '500px' }} className='border shadowed'>
+        <div style={{ height: '400px', width: '500px',background:'blur' }} className='border shadowed'>
           <h1 style={{ color: 'darkblue', fontWeight: '500' }} className='text-center fs-1 mt-3'>
             {register ? "Sign Up" : "Login"}
           </h1>

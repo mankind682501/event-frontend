@@ -5,9 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import { serverUrl } from '../services/serverUrl';
 import { profileUpdateApi } from '../services/allApi';
-import {  useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 
 function Listevent() {
+  const [isToken, setIsToken] = useState('');
 
 
 
@@ -80,6 +81,7 @@ function Listevent() {
     }
   };
 
+ 
 
   useEffect(() => {
     if (sessionStorage.getItem('existingUser')) {
@@ -116,6 +118,14 @@ function Listevent() {
   }, [userDetails.profile]);
 
 
+  useEffect(() => {
+      if (sessionStorage.getItem('token')) {
+        setIsToken(sessionStorage.getItem('token'));
+      }
+    
+    }, []);
+
+
 
 
 
@@ -129,110 +139,120 @@ function Listevent() {
 
   return (
     <>
-    <div>
-      <div style={{height:'70vh',width:'100%',backgroundColor:'black'}}>
-
-
-        <div className="row">
-          <div className="col-md-8">
-          <div style={{height:'70vh',width:'100%'}} className='d-flex justify-content-center align-items-center'>
-             <div> <h1 style={{fontSize:'100px'}}>GROW YOUR <br /> EVENTS EMPIRE</h1></div>
-
-
-        </div>
+    {isToken ? (
+      <>
+        <div style={{ height: '70vh', width: '100%', backgroundColor: 'black' }}>
+          <div className="row">
+            <div className="col-md-8">
+              <div style={{ height: '70vh', width: '100%' }} className='d-flex justify-content-center align-items-center'>
+                <div> <h1 style={{ fontSize: '99px' }}>GROW YOUR <br /> EVENTS EMPIRE</h1></div>
+              </div>
+            </div>
+            <div className="col-md-4"></div>
           </div>
-          <div className="col-md-4"></div>
-
         </div>
-      </div>
-
-
-
-      <div id='listimg1' style={{height:'80vh',width:'100%'}}>
-        
-
-
-
-
-      </div>
-      
-      <div className="relative">
-      <div className="scrolling-text-container w-100">
-        <div className="absolute bottom-0 w-100 bg-black text-white text-center py-4 flex flex-row justify-content-between align-items-center ms-4">
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>COUNTING</span>
-            <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
-            <span className='fs-1'>30,000</span>
-          </span>
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>EVENT</span>
-            <img src="https://www.shutterstock.com/image-vector/thin-line-flat-icons-events-260nw-479015032.jpg" width={'80px'} height={'80px'} alt="Icon" className="w-5 h-5 ms-5 me-5" />
-            <span className='fs-1'>SCRUFF OF THE NECK</span>
-          </span>
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>ORGANISERS</span>
-            <img src="https://th.bing.com/th/id/OIP.XBIyfLRhlumN-235-AWwTgAAAA?rs=1&pid=ImgDetMain" alt="Icon" className="w-5 h-5 ms-5 me-5" width={'80px'} height={'80px'}  />
-            <span>AND</span>
-          </span>
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>COUNTING</span>
-            <img src="https://i.pinimg.com/originals/48/55/43/485543f8ff3a6498a352a63fef502783.jpg" alt="Icon" className="w-5 h-5 ms-5 me-5" width={'80px'} height={'80px'}/>
-            <span className='fs-1'>30,000</span>
-          </span>
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>EVENT</span>
-            <img src="https://static.vecteezy.com/system/resources/previews/009/665/212/original/stylish-subscriber-badge-with-a-golden-ribbon-and-dark-color-shade-badge-image-on-transparent-background-10k-subscriber-celebration-badge-with-gold-color-and-calligraphy-free-png.png" alt="Icon" className="w-5 h-5 ms-5 me-5" width={'80px'} height={'80px'} />
-            <span className='fs-1'>ORGANISERS</span>
-          </span>
-          <span className="flex items-center ms-5">
-            <span className='fs-1'>COUNTING</span>
-            <img src="https://ae01.alicdn.com/kf/HTB1Q1dLg67nBKNjSZLeq6zxCFXa4/New-Rock-band-LOGO-Vinyl-Car-Decals-Stickers-Motorcycles-Decoration-Black-white.jpg_640x640.jpg" alt="Icon" className="w-5 h-5 ms-5 me-5" width={'80px'} height={'80px'}/>
-            <span className='fs-1'>30,000</span>
-          </span>
-        
-
-
-
-          
-         
-          
-          
-          
-        </div>
-      </div>
-      </div>
-
-      
-
-      <div style={{width:'100%',height:'100vh',backgroundColor:'black'}} className='d-flex justify-content-center align-items-center'>
-        <div style={{width:'70%',height:'80%'}} className=' justify-content-center '>
-          <h1 style={{fontSize:'100px'}} className=''>A new approach to ticketing <br />that's all about building your <br />following,out ours.</h1>
-       
-         <p className='fs-3'>we provide the tools to build a loyal customer base that you <br /> can re engage whenever you need them.Boosting your revenues,freeing up your time, and making your marketing go further</p>
-         
-         <div className='d-flex justify-content-center align-items-center'>
-
-          <button style={{backgroundColor:'violet',height:'50px',width:'150px',fontSize:'30px',color:'white'}} className='btn btn-rounded shadowed p-2' onClick={() => {
-      if (userDetails.CompanyName && userDetails.Mobile) {
-        Navigate('/Create'); // Navigate directly if  complete
-      } else {
-        handleShow(); // Show modal if incomplete
-      }}}>list event</button>
-         </div>
+        <div>
+          <img src="https://assets-global.website-files.com/6331c0fc515f425110d7801b/6331c0fc515f426f35d78032_Hero%2520image-p-2000.png" alt="" width={'100%'} />
 
 
         </div>
 
+        {/* Scrolling Text Section */}
+        <div className="relative overflow-hidden bg-black">
+          <div className="scrolling-text-container w-100">
+            <div className="scrolling-text bg-black text-white py-4 d-flex align-items-center">
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
 
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
 
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
 
-      </div>
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
 
+              <span className="d-flex align-items-center me-5">
+                <span className='fs-1'>COUNTING</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/021/514/918/original/microsoft-edge-browser-brand-logo-symbol-white-design-software-illustration-with-black-background-free-vector.jpg" alt="Icon" className="ms-5 me-5" width={'80px'} height={'80px'} />
+                <span className='fs-1'>30,000</span>
+              </span>
+              {/* More items here */}
+            </div>
+          </div>
+        </div>
 
+        {/* List Event Button Section */}
+        <div style={{ width: '100%', height: '100vh', backgroundColor: 'black' }} className='d-flex justify-content-center align-items-center'>
+          <div style={{ width: '90%', maxWidth: '1200px', height: 'auto' }} className='text-center'>
+            <h1 style={{ fontSize: 'clamp(40px, 8vw, 100px)' }} className='mb-4'>
+              A new approach to ticketing <br className='d-none d-md-block' /> that's all about building your <br className='d-none d-md-block' /> following, not ours.
+            </h1>
 
+            <p style={{ fontSize: 'clamp(16px, 2.5vw, 24px)' }} className='mb-4'>
+              We provide the tools to build a loyal customer base that you <br className='d-none d-md-block' /> can re-engage whenever you need them. Boosting your revenues, freeing up your time, and making your marketing go further.
+            </p>
 
-    </div>
+            <div className='d-flex justify-content-center align-items-center'>
+              <button
+                style={{
+                  backgroundColor: 'violet',
+                  height: '50px',
+                  width: '150px',
+                  fontSize: 'clamp(16px, 2.5vw, 24px)',
+                  color: 'white'
+                }}
+                className='btn btn-rounded shadowed p-2'
+                onClick={() => {
+                  if (userDetails.CompanyName && userDetails.Mobile) {
+                    Navigate('/Create'); // Navigate directly if complete
+                  } else {
+                    handleShow();
+                  }
+                }}
+              >
+                List Event
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
+    ) : (
+      <div className='bg-black text-white' style={{ height: '100vh', width: '100%' }}>
+                <div className="row">
+                           <div className="col-md-3"></div>
+                           <div className="col-md-6">
+                               <img src="https://cdn.dribbble.com/userupload/19624952/file/original-9a2a5e267bcead7d7cd7e0066115664a.gif" alt=""  width={'100%'}/>
+                             <div className='text-center px-5'> 
+                               <Link to={'/'}> <button className='btn btn-light'>Go Back</button></Link>
+                             </div>
+                           </div>
+                           
+                           <div className="col-md-3"></div>
+               
+                       </div>
+                
 
+            </div>
+    )}
 
 
 

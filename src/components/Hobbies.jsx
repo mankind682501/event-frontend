@@ -2,6 +2,14 @@ import React from 'react'
 import EventCard1 from './EventCard1'
 
 function Hobbies() {
+  
+
+
+
+
+
+
+
   return (
     <>
       <div style={{backgroundColor:'black'}}>

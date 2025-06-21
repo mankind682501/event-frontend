@@ -55,7 +55,7 @@ function ViewEvent() {
         </div>
         <div className="col-md-4 d-flex flex-column justify-content-center mb-3">
           <div>
-            <h1 style={{fontSize:'80px'}}>{Event.eventName}</h1>
+            <h1 style={{fontSize:'60px'}}>{Event.eventName}</h1>
             <p className="card-text">{Event?.description?.slice(0,200)}</p>
             <p>Date:{new Date(Event.eventDate).toLocaleDateString()}</p>
             <h1>EventType: {Event.eventType}</h1>
@@ -63,14 +63,16 @@ function ViewEvent() {
             <h1>Ticket price: {Event.ticketPrice}</h1>
             <p>
              <span style={{height:'30px',width:'100px'}} className={`badge ${Event.isPublic ? 'bg-success' : 'bg-secondary'}`}>
-              {Event.isPublic ? "Public" : "Private"} </span>
+              {Event.isPublic ? "Free" : "Paid"} </span>
 
             </p>
 
-          <Link to={`/book/${Event._id}`}>
-              <button className='btn btn-success'>Book your ticket</button>
-             
-          </Link>
+         {Event.isPublic ? <h1>Free Event</h1> : 
+            <Link to={`/book/${Event._id}`}>
+                <button className='btn btn-success'>Book your ticket</button>
+               
+            </Link>
+         }
 
 
 

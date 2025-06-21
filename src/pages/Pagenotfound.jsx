@@ -16,7 +16,7 @@ function Pagenotfound() {
 
         <div>
         <img src="https://cdn.dribbble.com/users/1041205/screenshots/3737699/error404.gif" alt="" width={'100%'} height={'100%'} />
-       <div className='d-flex justify-content-center align-items-center'> <Link to={'/home'}><button className='btn btn-warning mt-2'>GO back Home</button></Link></div>
+       <div className='d-flex justify-content-center align-items-center'> <Link to={'/login'}><button className='btn btn-warning mt-2'>GO back Home</button></Link></div>
         </div>
       
             
