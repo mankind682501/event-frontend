@@ -16,7 +16,7 @@ function Context({ children }) {
 
   const [editResponse, setEditResponse] = useState({})
 
-  const [isLoginStatus, setIsLoginStatus] = useState(true)
+  const [isLoginStatus, setIsLoginStatus] = useState(false)
   return (
     <>
       <addResponseContext.Provider value={{ addResponse, setAddResponse }}> {/* provider tag is used to share that data. where shared data should be passed as key value pairs */}
