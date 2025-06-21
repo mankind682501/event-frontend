@@ -145,21 +145,21 @@ function Header() {
             </div>
           </Nav.Item>
           <Nav.Item className=''>
-            <div className='d-flex mx-4'>
+            <div className='d-flex align-items-center mx-4'>
               <Link to={'/ticket'} className='text-light text-decoration-none'> <p id='ft' className='mt-3 me-4 ms-0 ms-md-5 fs-4'>Find my tickets</p></Link>
 
-              <Link to={'/profile'}> <Button variant="btn btn-outline-light me-3 mt-3" className=" mt-3">
+              <Button onClick={() => navigate('/profile')} variant="btn btn-outline-light me-3" style={{height:"40px"}} className="">
                 {isLoginStatus?
                 <p>{username}</p>
                 :<p>user</p>
                 } </Button>
-              </Link>
+              
               {isLoginStatus ? 
-                <Button variant="btn btn-outline-light me-3 mt-3" onClick={handleLogout}>
+                <Button variant="btn btn-light me-3" style={{height:"40px"}} onClick={handleLogout}>
                   Logout
                 </Button>
               : 
-                <Button  variant="btn btn-outline-light me-3 mt-3" onClick={() => navigate('/login')}>
+                <Button  variant="btn btn-light me-3 " style={{height:"40px"}} onClick={() => navigate('/login')}>
                   Login
                 </Button>
               }

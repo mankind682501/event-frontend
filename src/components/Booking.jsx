@@ -119,7 +119,7 @@ function Booking() {
 
   return (
     <>
-      <div style={{ backgroundColor: 'black', height: '100vh', width: '100%' }} className="d-flex justify-content-center align-items-center">
+      <div style={{ backgroundColor: 'black', width: '100%' }} className="d-flex justify-content-center align-items-center">
         <div className="row">
           <div className="col-md-6 col-sm-12 col-lg-6 col-xl-6 d-flex justify-content-center align-items-center mb-5">
             <div className="p-3" style={{ width: '100%', height: '550px' }} id="glasseffect">

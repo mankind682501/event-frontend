@@ -27,7 +27,7 @@ function Profile() {
     {isToken ? 
     <div className="bg-black" style={{ minHeight: '100vh', padding: '20px' }}>
       <div className="container">
-        <div className="row justify-content-center align-items-center" style={{height:'80vh'}}>
+        <div className="row justify-content-center align-items-center" >
           {/* Left Column - Profile Image and Basic Info */}
           <div className="col-md-5 col-lg-4 my-2">
             <div className="card bg-dark text-white p-3 shadow-lg rounded py-5" style={{height:"400px"}}>
